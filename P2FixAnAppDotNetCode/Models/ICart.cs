@@ -1,9 +1,14 @@
 ﻿
+using System.Collections.Generic;
+
 namespace P2FixAnAppDotNetCode.Models
 {
     public interface ICart
     {
+
         void AddItem(Product product, int quantity);
+
+        void AddLine(CartLine cartLine);
 
         void RemoveLine(Product product);
 
@@ -12,5 +17,6 @@ namespace P2FixAnAppDotNetCode.Models
         double GetTotalValue();
 
         double GetAverageValue();
+
     }
 }
