@@ -83,16 +83,16 @@ namespace P2FixAnAppDotNetCode.Models
         /// </summary>
         public void RemoveLine(Product product)
         {
-            //var cartLine = FindProductInCartLines(product.Id);
+            var cartLine = FindProductInCartLines(product.Id);
 
-            //if (cartLine.Quantity > 1)
-            //{
-            //    cartLine.Quantity -= 1;
-            //}
-            //else
-            //{
-            //    GetCartLineList().Remove(cartLine);
-            //}
+            if (cartLine.Quantity > 1)
+            {
+                cartLine.Quantity -= 1;
+            }
+            else
+            {
+                GetCartLineList().Remove(cartLine);
+            }
         }
 
         /// <summary>
@@ -165,8 +165,8 @@ namespace P2FixAnAppDotNetCode.Models
         /// </summary>
         public void Clear()
         {
-            //IList<CartLine> cartLines = GetCartLineList();
-            //cartLines.Clear();
+            IList<CartLine> cartLines = GetCartLineList();
+            cartLines.Clear();
         }
     }
 
