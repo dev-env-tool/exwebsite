@@ -14,9 +14,9 @@ namespace P2FixAnAppDotNetCode.Models
 
         void Clear();
 
-        double GetTotalValue();
+        //double GetTotalValue();
 
-        double GetAverageValue();
+        //double GetAverageValue();
 
     }
 }

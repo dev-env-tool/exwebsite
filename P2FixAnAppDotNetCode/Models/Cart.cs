@@ -83,16 +83,16 @@ namespace P2FixAnAppDotNetCode.Models
         /// </summary>
         public void RemoveLine(Product product)
         {
-            var cartLine = FindProductInCartLines(product.Id);
+            //var cartLine = FindProductInCartLines(product.Id);
 
-            if (cartLine.Quantity > 1)
-            {
-                cartLine.Quantity -= 1;
-            }
-            else
-            {
-                GetCartLineList().Remove(cartLine);
-            }
+            //if (cartLine.Quantity > 1)
+            //{
+            //    cartLine.Quantity -= 1;
+            //}
+            //else
+            //{
+            //    GetCartLineList().Remove(cartLine);
+            //}
         }
 
         /// <summary>
@@ -103,10 +103,10 @@ namespace P2FixAnAppDotNetCode.Models
             // TODO implement the method
             double totalCartValue = 0;
             
-            foreach (var cartLine in GetCartLineList())
-            {
-                totalCartValue += (cartLine.Product.Price * cartLine.Quantity);
-            }
+            //foreach (var cartLine in GetCartLineList())
+            //{
+            //    totalCartValue += (cartLine.Product.Price * cartLine.Quantity);
+            //}
 
             return totalCartValue;
         }
@@ -119,15 +119,15 @@ namespace P2FixAnAppDotNetCode.Models
             // TODO implement the method
             int i = 0;
 
-            foreach (var cartLine in GetCartLineList())
-            {
-                i += cartLine.Quantity;
-            }
-            //To avoid impossile division x/0 => x/1
-            if (i == 0)
-            {
-                i = 1;
-            }
+            //foreach (var cartLine in GetCartLineList())
+            //{
+            //    i += cartLine.Quantity;
+            //}
+            ////To avoid impossile division x/0 => x/1
+            //if (i == 0)
+            //{
+            //    i = 1;
+            //}
             return GetTotalValue()/i;
         }
 
@@ -165,8 +165,8 @@ namespace P2FixAnAppDotNetCode.Models
         /// </summary>
         public void Clear()
         {
-            IList<CartLine> cartLines = GetCartLineList();
-            cartLines.Clear();
+            //IList<CartLine> cartLines = GetCartLineList();
+            //cartLines.Clear();
         }
     }
 
