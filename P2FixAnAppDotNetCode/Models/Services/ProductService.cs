@@ -45,10 +45,10 @@ namespace P2FixAnAppDotNetCode.Models.Services
             // TODO implement the method
             Product[] products = GetAllProducts();
 
-            foreach (Product product in products) 
+            foreach (Product product in products)
             {
-                if(product.Id == id)
-                {     
+                if (product.Id == id)
+                {
                     return product;
                 }
             }
@@ -61,13 +61,13 @@ namespace P2FixAnAppDotNetCode.Models.Services
         /// </summary>
         public void UpdateProductQuantities(Cart cart)
         {
-            // TODO implement the method
-            // update product inventory by using _productRepository.UpdateProductStocks() method.
-            foreach(var cartLine in cart.GetCartLineList())
-            {
-                int quantityToRemove = cartLine.Quantity;
-                _productRepository.UpdateProductStocks(cartLine.Product.Id,quantityToRemove);
-            }
+            //TODO implement the method
+            //update product inventory by using _productRepository.UpdateProductStocks() method.
+            //foreach (var cartLine in cart.GetCartLineList())
+            //{
+            //    int quantityToRemove = cartLine.Quantity;
+            //    _productRepository.UpdateProductStocks(cartLine.Product.Id, quantityToRemove);
+            //}
         }
     }
 }
