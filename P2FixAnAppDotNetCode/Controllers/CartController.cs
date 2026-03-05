@@ -9,22 +9,25 @@ namespace P2FixAnAppDotNetCode.Controllers
     {
         private readonly ICart _cart;
         private readonly IProductService _productService;
+        
 
         public CartController(ICart pCart, IProductService productService)
         {
             _cart = pCart;
             _productService = productService;
+            //_cartService = cartService;
         }
 
         public ViewResult Index()
         {
-            return View(_cart as Cart);
+            return View(_cart as Cart);      
         }
 
         [HttpPost]
         public RedirectToActionResult AddToCart(int id)
         {
             Product product = _productService.GetProductById(id);
+
 
             if (product != null)
             {
@@ -33,7 +36,7 @@ namespace P2FixAnAppDotNetCode.Controllers
             }
             else
             {
-                return RedirectToAction("Index", "Product");
+                return RedirectToAction("Index, Product");
             }
         }
 
