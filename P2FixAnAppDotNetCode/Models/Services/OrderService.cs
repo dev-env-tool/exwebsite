@@ -1,4 +1,5 @@
 ﻿using System;
+using AspNetCoreGeneratedDocument;
 using P2FixAnAppDotNetCode.Models.Repositories;
 
 namespace P2FixAnAppDotNetCode.Models.Services

@@ -22,25 +22,45 @@ namespace P2FixAnAppDotNetCode.Controllers
         public ViewResult Index() => View(new Order());
 
         [HttpPost]
-        public IActionResult Index(Order order)
+        public IActionResult Index([Bind]Order order)
         {
-            if (!((Cart) _cart).Lines.Any())
+            try
             {
-                ModelState.AddModelError("", _localizer["CartEmpty"]);
+                if (ModelState.IsValid)
+                {
+                    order.Lines = (_cart as Cart)?.Lines.ToArray();
+                    _orderService.SaveOrder(order);
+                    return RedirectToAction(nameof(Completed));
+                }
+                return View(order);
             }
-            if (ModelState.IsValid)
+            catch
             {
-                order.Lines = (_cart as Cart)?.Lines.ToArray();
-                _orderService.SaveOrder(order);
-                return RedirectToAction(nameof(Completed));
-            }
-            else
-            {
+                if (!((Cart)_cart).Lines.Any())
+                {
+                    ModelState.AddModelError("", _localizer["CartEmpty"]);
+                }
+                if (order.Name == null)
+                {
+                    ModelState.AddModelError("Name", _localizer["ErrorMissingName"]);
+                }
+                if (order.Address == null)
+                {
+                    ModelState.AddModelError("Adress", _localizer["ErrorMissingAddress"]);
+                }
+                if (order.City == null)
+                {
+                    ModelState.AddModelError("City", _localizer["ErrorMissingCity"]);
+                }
+                if (order.Country == null)
+                {
+                    ModelState.AddModelError("Country", _localizer["ErrorMissingCountry"]);
+                }
                 return View(order);
             }
         }
 
-        public ViewResult Completed()
+        public ViewResult Completed(Order order)
         {
             _cart.Clear();
             return View();

@@ -120,4 +120,16 @@
   <data name="CartEmpty" xml:space="preserve">
     <value>Sorry, your cart is empty !</value>
   </data>
+  <data name="ErrorMissingAddress" xml:space="preserve">
+    <value>Please give your address</value>
+  </data>
+  <data name="ErrorMissingCity" xml:space="preserve">
+    <value>Please give your city</value>
+  </data>
+  <data name="ErrorMissingCountry" xml:space="preserve">
+    <value>Please give your country</value>
+  </data>
+  <data name="ErrorMissingName" xml:space="preserve">
+    <value>Please give a name </value>
+  </data>
 </root>

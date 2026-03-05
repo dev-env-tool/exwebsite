@@ -40,4 +40,3 @@ namespace P2FixAnAppDotNetCode.Resources.Models.ViewModels
         }
     }
 }
-
