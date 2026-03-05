@@ -49,8 +49,12 @@ namespace P2FixAnAppDotNetCode
                     new CultureInfo("en"),
                     new CultureInfo("fr-FR"),
                     new CultureInfo("fr"),
+                    //Adding Spanish supported culture via CultureInfo<m>
+                    new CultureInfo("es-ES"),
+                    new CultureInfo("es"),
+                    //</m>
                 };
-
+                //debug
                 opts.DefaultRequestCulture = new RequestCulture("en");
                 // Formatting numbers, dates, etc.
                 opts.SupportedCultures = supportedCultures;
